@@ -4,14 +4,19 @@ app = Flask(__name__)
 
 cli = Client(base_url='unix://var/run/docker.sock')
 
+
 @app.route("/")
 def hello():
-    a = cli.logs("d10ebcd9a693", stdout=True, stream=True, tail="all", follow=True)
+    a = cli.logs("d10ebcd9a693",
+                 stdout=True,
+                 stream=True,
+                 tail="all",
+                 follow=True)
+
     def logs():
         for i in a:
             yield(i)
     return Response(logs(), mimetype='text/plain')
-
 
 
 @app.route("/ports")
