@@ -25,7 +25,7 @@ def ports():
     cp = []
     for container in containers:
         cp.append(container['Ports'][0]['PublicPort'])
-    return '\n'.join(str(e) for e in cp)
+    return ' '.join(str(e) for e in cp)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
