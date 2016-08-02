@@ -1,10 +1,11 @@
 import unittest
-import agent as agent
+from logs import Logs
 
 
 class TestRetournePort(unittest.TestCase):
     def test(self):
-        self.assertEqual(agent.ports(), "5000 80 8081")
+        l = Logs()
+        self.assertEqual(l.logsContainer, "henri", "test henri reussit")
 
 if __name__ == '__main__':
     unittest.main()
