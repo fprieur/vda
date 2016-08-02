@@ -4,4 +4,4 @@ python:
 # install dependencies
 install: "sudo pip install -r requirements.txt"
 # test unitaires
-script: ls ports/tests/unit
+script: cat ports/tests/unit/testport.py
