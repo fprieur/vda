@@ -5,14 +5,16 @@ sudo: required
 services:
   - docker
 before_install:
-- docker pull tutum/hello-world
-- docker run -d -p 80:80 tutum/hello-world
-- docker ps -a
+  - python setup.py install
+  - docker pull tutum/hello-world
+  - docker run -d -p 80:80 tutum/hello-world
+  - docker ps -a
 # install dependencies
 install: "sudo pip install -r requirements.txt"
 # test unitaires
-script: cat ports/tests/unit/testport.py
-script: python --version
-script: python ports/tests/unit/testport.py
+script:
+  - cat ports/tests/unit/testport.py
+  - python --version
+  - python ports/tests/unit/testport.py
 virtualenv:
     system_site_packages: true
