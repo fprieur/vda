@@ -9,6 +9,8 @@ before_install:
   - docker version
   - docker pull tutum/hello-world
   - docker run -d -p 80:80 tutum/hello-world
+  - docker run -d -p 81:80 tutum/hello-world
+  - docker run -d -p 50001:80 tutum/hello-world
   - docker ps -a
 # install dependencies
 install: "sudo pip install -r requirements.txt"
