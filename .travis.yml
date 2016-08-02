@@ -2,7 +2,6 @@ language: pythons
 python:
   - "2.7"
 # install dependencies
-sudo: required
-install: "pip install -r requirements.txt"
+install: "sudo pip install -r requirements.txt"
 # test unitaires
 script: python ports/tests/unit/testport.py
