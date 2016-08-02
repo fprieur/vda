@@ -1,6 +1,6 @@
 from docker import Client
 
-cli = Client(base_url='unix://var/run/docker.sock')
+cli = Client(base_url='unix://var/run/docker.sock', version='1.20')
 
 
 class Ports(object):
