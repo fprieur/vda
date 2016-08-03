@@ -1,6 +1,5 @@
 from distutils.core import setup
 
-NAME = 'logs'
-setup(name=NAME,
+setup(name='vda',
       version='0.0.1',
-      packages=[NAME],)
+      packages=['logs', 'ports'],)
