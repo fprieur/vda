@@ -1,2 +1,10 @@
+languages:
+  Python: true
 exclude_paths:
 - "docs/"
+engines:
+  pep8:
+    enabled: true
+ratings:
+  paths:
+  - "**.py"
