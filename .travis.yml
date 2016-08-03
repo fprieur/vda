@@ -10,7 +10,6 @@ services:
 before_install:
   - python setup.py install
   - pip install codeclimate-test-reporter
-  - coverage run logs/logs.py
   - docker version
   - docker pull tutum/hello-world
   - docker run -d -p 80:80 tutum/hello-world
@@ -18,6 +17,7 @@ before_install:
   - docker run -d -p 50001:80 tutum/hello-world
   - docker ps -a
 after_success:
+  - coverage run logs/logs.py
   - codeclimate-test-reporter
 # install dependencies
 install: "sudo pip install -r requirements.txt"
