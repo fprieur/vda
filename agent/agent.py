@@ -1,16 +1,13 @@
 from flask import Flask, Response
-from docker import Client
 from logs.logs import Logs
 from ports.ports import Ports
 app = Flask(__name__)
 
-cli = Client(base_url='unix://var/run/docker.sock')
 
-
-@app.route("/")
-def logs():
+@app.route("/logs/<imageid>")
+def logs(imageid):
     l = Logs()
-    cl = l.logsContainer()
+    cl = l.logsContainer(imageid)
     return(cl)
 
 
