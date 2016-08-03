@@ -6,18 +6,23 @@ services:
   - docker
 before_install:
   - python setup.py install
+  - pip install codeclimate-test-reporter
   - docker version
   - docker pull tutum/hello-world
   - docker run -d -p 80:80 tutum/hello-world
   - docker run -d -p 81:80 tutum/hello-world
   - docker run -d -p 50001:80 tutum/hello-world
   - docker ps -a
+after_success:
+  - CODECLIMATE_REPO_TOKEN=36e4d37a992481f1492376663ae6432ff8740ef5119c68fcc13e3104019ff070 codeclimate-test-reporter
 # install dependencies
 install: "sudo pip install -r requirements.txt"
 # test unitaires
 script:
-  - cat ports/tests/unit/testport.py
   - python --version
   - python ports/tests/unit/testport.py
 virtualenv:
     system_site_packages: true
+addons:
+    code_climate:
+        repo_token: 36e4d37a992481f1492376663ae6432ff8740ef5119c68fcc13e3104019ff070
