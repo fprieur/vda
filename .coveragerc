@@ -3,3 +3,4 @@ branch = True
 source = .
 omit =
   docs/*
+  *__init__.py
